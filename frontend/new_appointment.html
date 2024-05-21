@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify | New Appointment</title>
+    <link rel="stylesheet" href="./stylesheets/bills.css">
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bills.html">Bills</a></li>
+                <li class="active"><a href="appointments.html">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2>New Appointment</h2>
+    <section class="form-container">
+        <form id="appointments" action="results.html" method="GET">
+            <label for="name">Name of appointment</label><br>
+            <input class="form-field" type="text" id="name" name="name" placeholder="Dre's immunization" required><br>
+            <label for="date">Date</label><br>
+            <input class="form-field" type="date" id="date" name="date" required><br>
+            <label for="amount">Time</label><br>
+            <input class="form-field" type="time" id="time" name="time" required><br>
+            <label for="amount">Location</label><br>
+            <input class="form-field" type="location" id="location" name="location" required><br>
+            <label for="date">Additional information</label><br>
+            <textarea class="form-field" id="extra_info" name="extra_info" placeholder="Notes about your appointment here..."></textarea><br>
+            <label>Recurrence:</label>
+            <span>
+                <input type="radio" id="yearly" name="frequency" value="Yearly">
+                <label for="option1"> Yearly</label>
+                <input type="radio" id="monthly" name="frequency" value="Monthly">
+                <label for="option2"> Monthly</label>
+                <input type="radio" id="weekly" name="frequency" value="Weekly">
+                <label for="option2"> Weekly</label>
+                <input type="radio" id="none" name="frequency" value="None">
+                <label for="option2"> None</label><br>
+            </span>
+
+         <!--   <input type="submit" value="Save"> -->
+            <div class="frame container">
+              <button type="submit">Save</button>
+              <button type="reset">Clear</button>
+            </div>
+          </form>
+    </section>
+    <!--<div class="frame">
+        <button type="submit">Save</button>
+        <button type="reset">Clear</button>
+    </div> -->
+    
+  </body>
+</html>

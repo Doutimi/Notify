@@ -1,0 +1,53 @@
+button{
+    padding: 0.5rem 2rem;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    font-family: Niveau grotesk;
+    font-size:14pt;
+    cursor: pointer;
+    background-color: inherit;
+}
+
+button a{
+    text-decoration: none;
+    color: inherit;
+}
+
+button:hover {
+    background-color: #FDBF8B;
+    color: black;
+}
+
+h1{
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+    font-size: 90pt;
+}
+
+body{
+    align-content: center;
+    justify-content: center;
+    margin-top: 14%;
+}
+
+p {
+    text-align: center;
+    align-content: center; 
+    margin-top: 0px;
+    font-size: 20pt;
+    font-family: Niveau grotesk;
+}
+
+.frame {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 70px;
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+img {
+    height: 8%;
+    width: 8%;
+}

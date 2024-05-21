@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify | New Bill</title>
+    <link rel="stylesheet" href="./stylesheets/bills.css">
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="bills.html">Bills</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2>New Bill</h2>
+    <section class="form-container">
+        <form id="myForm" action="">
+            <label for="name">Name of bill</label>
+            <input class="form-field" type="text" id="name" name="name" placeholder="Spotify" required><br>
+            <label for="amount">Amount due</label><br>
+            <input class="form-field" type="number" id="amount" name="amount" placeholder="1400" required><br>
+            <label for="date">Due date</label><br>
+            <input class="form-field" type="date" id="date" name="date" required><br>
+            <label>Recurrence:</label>
+            <span>
+                <input type="radio" id="yearly" name="frequency" value="Yearly">
+                <label for="option1"> Yearly</label>
+                <input type="radio" id="monthly" name="frequency" value="Monthly">
+                <label for="option2"> Monthly</label>
+                <input type="radio" id="weekly" name="frequency" value="Weekly">
+                <label for="option2"> Weekly</label>
+                <input type="radio" id="none" name="frequency" value="None">
+                <label for="option2"> None</label><br>
+            </span>
+
+         <!--   <input type="submit" value="Save"> -->
+            <div class="btn_frame container">
+              <button type="submit"><a href="bills.html"></a>Save</button>
+              <button type="reset">Clear</button>
+            </div>
+          </form>
+    </section>
+    
+    <script src="bills.js"></script>
+  </body>
+</html>
