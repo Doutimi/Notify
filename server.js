@@ -13,29 +13,27 @@ app.use(bodyParser.json());
 // Serve the HTML form
 app.use(express.static(path.join(__dirname, 'frontend')));
 
+// Path to the JSON file
+const billsFilePath ='./backend/bills.json';
+
+//endpoint to get bills list
+app.get("/bills/get_list",(req,res)=>{
+    /**@type {BillsData[]} */
+    let billsData=ReadFile(billsFilePath,[])
+    res.send(billsData)
+})
+
 // Endpoint to handle form submission
 app.post('/bills/new/save', (req, res) => {
     /**@type {BillsData} */
     const billsEntry = req.body
     console.log({body:req.body})
 
-    // Path to the JSON file
-    const filePath ='./backend/bills.json';
-
-    //create the file if it doesnt exist and initialise with an empty array
-    if(!fs.existsSync(filePath)) fs.writeFileSync(filePath,`[]`);
-
-    //read file
-    /**@type {BillsData[]} */
-    let historyData =JSON.parse(fs.readFileSync(filePath));
-
-    //if file is not an array, discard old content,
-    if(!Array.isArray(historyData)) historyData=[];
-
+    let historyData=ReadFile(billsFilePath,[])
     //append the new data receive int he http body
     historyData.push(billsEntry)
 
-    fs.writeFileSync(filePath,JSON.stringify(historyData))
+    fs.writeFileSync(billsFilePath,JSON.stringify(historyData))
     res.send({message:"bills saved successfully"});
 });
 
@@ -54,3 +52,21 @@ app.get('/backend', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
+/**
+ * 
+ * @param {string} filepath 
+ * @param {any} defaultValue a JSON serialiable object value
+ */
+function ReadFile(filepath,defaultValue){
+    //create the file if it doesnt exist and initialise with an empty array
+    if(!fs.existsSync(filepath)) fs.writeFileSync(filepath,JSON.stringify(defaultValue));
+
+    /**@type {typeof defaultValue} */
+    let historyData =JSON.parse(fs.readFileSync(filepath));
+
+    //if file is not an array, discard old content,
+    if(!Array.isArray(historyData)) historyData=defaultValue;
+
+    return historyData
+}

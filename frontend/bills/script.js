@@ -9,7 +9,7 @@ async function FetchBillsList(){
             <span class="bill-name">${item.name}</span>
             <span class="bill-date">${item.date}</span>
         </div>`
-    ))
+    )).join("")
 
     let container=document.getElementById("container")
     container.innerHTML=billsHTML
