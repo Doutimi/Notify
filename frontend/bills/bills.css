@@ -1,0 +1,144 @@
+body{
+    align-content: center;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    /*background-color: cornsilk;*/
+    display:flex;
+    justify-content: space-evenly;
+    justify-items: center;
+    padding-left: 20%;
+    padding-right: 20%; 
+  }
+
+  li {
+    display:flex;
+    border: 1px;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    padding: 0.5rem 2rem;
+    margin: 0.2rem;
+    background-color: #F0EDEB;
+    font-family: "Niveau grotesk", Helvetica;
+    font-weight:500;
+  }
+
+  li a {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+li:hover {
+    background-color: cornsilk;
+}
+
+.active {
+    background-color: #FDBF8B;
+}
+
+h2{
+    padding: 1px;
+    text-align: center;
+    font-size: 50px;
+    font-family: Niveau grotesk;
+}
+
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+
+.form-container{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    display: flex;
+    justify-content: center;
+
+}
+
+.list-item{
+    border-bottom: 1px solid black;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.7em;
+    font-family: Niveau grotesk;
+}
+
+.bill-name{
+    display:inline-block;
+    padding-right: .5em;
+    padding-left: .5em;
+    font-weight: bold;
+    font-size: 16pt;
+    width: 60%
+}
+
+.bill-date{
+    /*display:inline-block; */
+    float: right;
+    padding-right: .5em;
+    font-style: italic;
+    width: 20%
+}
+
+.form-field{
+    width: 90%;
+    padding: 0.5rem 1rem;
+    border: 2px solid grey;
+    border-radius: 0.5rem;
+    margin-bottom: 20px;
+    /*margin-left: 6px; */
+    font-family: Niveau grotesk;
+    font-size:14pt;
+}
+
+label{
+    font-family: Niveau grotesk;
+    font-size:14pt;
+    padding: 0.5rem;
+}
+
+.frame{
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 18px;
+    padding: 0 1.5em;
+    /*display: flex; */
+    /*padding: 0;*/
+    justify-content: flex-start; 
+
+}
+
+.btn_frame{
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 18px; 
+    display: flex;
+    padding: 0;
+}
+
+button{
+    padding: 0.5rem 2rem;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    font-family: Niveau grotesk;
+    font-size:14pt;
+    cursor: pointer;
+    background-color: inherit;
+    margin-top: 0.3em;
+}
+
+button:hover {
+    background-color: #FDBF8B;
+    color: black;
+}
+
+button a{
+    text-decoration: none;
+    color: inherit;
+}

@@ -8,25 +8,35 @@ const port = 3000;
 
 // Middleware to parse JSON body
 app.use(bodyParser.json());
+/**@typedef {{name:string,amount:string,date:string,frequency:string,id:string}} BillsData */
 
 // Serve the HTML form
 app.use(express.static(path.join(__dirname, 'frontend')));
 
 // Endpoint to handle form submission
-app.post('/submit', (req, res) => {
-    const formData = req.body;
+app.post('/bills/new/save', (req, res) => {
+    /**@type {BillsData} */
+    const billsEntry = req.body
+    console.log({body:req.body})
 
     // Path to the JSON file
-    const filePath = path.join(__dirname, 'backend', 'bills.json');
+    const filePath ='./backend/bills.json';
 
-    // Save form data to JSON file
-    fs.writeFile(filePath, JSON.stringify(formData, null, 2), (err) => {
-        if (err) {
-            console.error('Error writing to file', err);
-            return res.status(500).json({ message: 'Internal Server Error' });
-        }
-        res.json({ message: 'Bill saved successfully' });
-    });
+    //create the file if it doesnt exist and initialise with an empty array
+    if(!fs.existsSync(filePath)) fs.writeFileSync(filePath,`[]`);
+
+    //read file
+    /**@type {BillsData[]} */
+    let historyData =JSON.parse(fs.readFileSync(filePath));
+
+    //if file is not an array, discard old content,
+    if(!Array.isArray(historyData)) historyData=[];
+
+    //append the new data receive int he http body
+    historyData.push(billsEntry)
+
+    fs.writeFileSync(filePath,JSON.stringify(historyData))
+    res.send({message:"bills saved successfully"});
 });
 
 // Endpoint to serve JSON data

@@ -1,6 +1,30 @@
-{
-  "name": "Netflixxx",
-  "amount": "3800",
-  "date": "2024-05-31",
-  "frequency": "Monthly"
-}
+[
+  {
+    "name": "timi bill. very troubesome",
+    "amount": "12",
+    "date": "2024-05-15",
+    "frequency": "Monthly",
+    "id": "7087"
+  },
+  {
+    "name": "timi bill. very troubesome",
+    "amount": "12",
+    "date": "2024-05-15",
+    "frequency": "Monthly",
+    "id": "4378"
+  },
+  {
+    "name": "wlejfbjleb",
+    "amount": "12",
+    "date": "2024-05-08",
+    "frequency": "Weekly",
+    "id": "7864"
+  },
+  {
+    "name": "food is what Timi likes",
+    "amount": "12",
+    "date": "2024-05-16",
+    "frequency": "None",
+    "id": "261"
+  }
+]
