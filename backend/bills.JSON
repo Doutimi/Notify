@@ -1,19 +1,5 @@
 [
   {
-    "name": "timi bill. very troubesome",
-    "amount": "12",
-    "date": "2024-05-15",
-    "frequency": "Monthly",
-    "id": "7087"
-  },
-  {
-    "name": "timi bill. very troubesome",
-    "amount": "12",
-    "date": "2024-05-15",
-    "frequency": "Monthly",
-    "id": "4378"
-  },
-  {
     "name": "wlejfbjleb",
     "amount": "12",
     "date": "2024-05-08",
@@ -26,5 +12,40 @@
     "date": "2024-05-16",
     "frequency": "None",
     "id": "261"
+  },
+  {
+    "name": "Tims Bill",
+    "amount": "11",
+    "date": "2024-05-01",
+    "frequency": "Weekly",
+    "id": "7430"
+  },
+  {
+    "name": "Spotify",
+    "amount": "1400",
+    "date": "2024-06-25",
+    "frequency": "Monthly",
+    "id": "3634"
+  },
+  {
+    "name": "Nepa",
+    "amount": "60000",
+    "date": "2024-03-08",
+    "frequency": "Weekly",
+    "id": "5056"
+  },
+  {
+    "name": "Joys Hair appointment",
+    "amount": "25000",
+    "date": "2024-05-15",
+    "frequency": "Monthly",
+    "id": "3974"
+  },
+  {
+    "name": "Netflixxx",
+    "amount": "3800",
+    "date": "2024-05-22",
+    "frequency": "Monthly",
+    "id": "7681"
   }
 ]
