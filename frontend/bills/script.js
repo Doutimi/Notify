@@ -3,18 +3,12 @@ async function FetchBillsList(){
     let response =await fetch("./get_list") 
     /**@type {import("../../server").BillsData[]} */
     let billsList=await response.json()
-    billsList = billsList.map(item=>({
-        ...item,
-        time:(new Date(item.date)).getTime()
-    }))
     
     let sortedData=billsList.sort((a,b)=>{
         let dateA=new Date(a.date)
         let dateB=new Date(b.date);
         return (dateA.getTime()-dateB.getTime()) ;
     });
-
-    console.log({sortedData,billsList})
 
     let billsHTML=sortedData.map((item,index)=>(
         `<div class="list-item">
