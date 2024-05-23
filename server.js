@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 
 // Path to the JSON file
 const billsFilePath ='./backend/bills.json';
+const appointmentsFilePath ='./backend/appointments.json';
 
 //endpoint to get bills list
 app.get("/bills/get_list",(req,res)=>{
@@ -23,7 +24,14 @@ app.get("/bills/get_list",(req,res)=>{
     res.send(billsData)
 })
 
-// Endpoint to handle form submission
+//endpoint to get appointments list
+app.get("/appointments/get_list",(req,res)=>{
+    /**@type {AppointmentsData[]} */
+    let appointmentsData=ReadFile(appointmentsFilePath,[])
+    res.send(appointmentsData)
+})
+
+// Endpoint to handle bill form submission
 app.post('/bills/new/save', (req, res) => {
     /**@type {BillsData} */
     const billsEntry = req.body
@@ -35,6 +43,20 @@ app.post('/bills/new/save', (req, res) => {
 
     fs.writeFileSync(billsFilePath,JSON.stringify(historyData))
     res.send({message:"bills saved successfully"});
+});
+
+// Endpoint to handle appointment form submission
+app.post('/appointments/new/save', (req, res) => {
+    /**@type {AppointmentsData} */
+    const appointmentsEntry = req.body
+    console.log({body:req.body})
+
+    let historyData=ReadFile(appointmentsFilePath,[])
+    //append the new data receive int he http body
+    historyData.push(appointmentsEntry)
+
+    fs.writeFileSync(appointmentsFilePath,JSON.stringify(historyData))
+    res.send({message:"Appointment saved successfully"});
 });
 
 // Endpoint to serve JSON data

@@ -4,21 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notify | New Appointment</title>
-    <link rel="stylesheet" href="./stylesheets/bills.css">
+    <link rel="stylesheet" href="../appointments.css">
   </head>
   <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="bills.html">Bills</a></li>
-                <li class="active"><a href="appointments.html">Appointments</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/frontend/bills">Bills</a></li>
+                <li class="active"><a href="../">Appointments</a></li>
             </ul>
         </nav>
     </header>
     <h2>New Appointment</h2>
     <section class="form-container">
-        <form id="appointments" action="results.html" method="GET">
+        <form id="appointments">
             <label for="name">Name of appointment</label><br>
             <input class="form-field" type="text" id="name" name="name" placeholder="Dre's immunization" required><br>
             <label for="date">Date</label><br>
@@ -41,17 +41,12 @@
                 <label for="option2"> None</label><br>
             </span>
 
-         <!--   <input type="submit" value="Save"> -->
-            <div class="frame container">
+            <div class="btn_frame container">
               <button type="submit">Save</button>
               <button type="reset">Clear</button>
             </div>
           </form>
-    </section>
-    <!--<div class="frame">
-        <button type="submit">Save</button>
-        <button type="reset">Clear</button>
-    </div> -->
-    
+    </section>   
+    <script src="new_appointment.js"></script> 
   </body>
 </html>

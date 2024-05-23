@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notify | Appointments</title>
-    <link rel="stylesheet" href="./stylesheets/bills.css">
+    <link rel="stylesheet" href="appointments.css">
   </head>
   <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="bills.html">Bills</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="../bills/">Bills</a></li>
                 <li class="active">Appointments</li>
             </ul>
         </nav>
     </header>
     <h2>Appointments</h2>
-    <section class="container">
+    <section class="container" id="container">
         <div class="list-item">
             <span class="bill-name">Name of appointment</span>
             <span class="bill-date">Date due</span>
@@ -32,8 +32,8 @@
         </div>
     </section>
     <div class="frame container">
-        <button type="button"><a href="new_appointment.html">New Appointment</a></button>
+        <a href="new/"><button type="button">New Appointment</button></a>
     </div>
-    
+    <script src="script.js"></script>
   </body>
 </html>
