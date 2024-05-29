@@ -98,11 +98,6 @@ h2{
 img{
     width: 24px;
     height: 24px;
-    float: right;
-}
-
-img:hover{
-    background-color: cornsilk;
 }
 
 .form-field{

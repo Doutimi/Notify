@@ -68,6 +68,19 @@ app.get("/bills/edit/:id",(req,res)=>{
     res.send(html);
 })
 
+//endpoint to delete a single bill entry
+app.delete("/bills/edit/:id",(req,res)=>{
+    console.log({message:"delete request"})
+    let id=req.params.id;
+    /**@type {BillsData[]} */
+    let allBillsData=ReadFile(billsFilePath,[]);
+    //remove the item with the indicated id
+    filteredData=allBillsData.filter(item=>item.id!==id);
+    //save the edited bills entries
+    fs.writeFileSync(billsFilePath,JSON.stringify(filteredData))
+    res.send({message:"bill entry deleted successfully"});
+})
+
 
 //endpoint to get appointments list
 app.get("/appointments/get_list",(req,res)=>{

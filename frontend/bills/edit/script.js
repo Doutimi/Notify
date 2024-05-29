@@ -30,8 +30,9 @@ async function FetchBill(){
             <label for="option2"> None</label><br>
         </span>
 
-        <div class="btn_frame container">
-            <button  onclick="handleSubmit()">Save</button>
+        <div class="btn_frame container" ">
+            <button  onclick="HandleSubmit()">Save</button>
+            <button  onclick="HandleDelete()"><img src="../trash icon.svg" alt="delete"></button>
         </div>
   </form>`
     
@@ -45,7 +46,7 @@ FetchBill()
 
 
 
-async function handleSubmit(event) {
+async function HandleSubmit(event) {
     console.log("got here")
     // event.preventDefault();
     const data = new FormData(document.getElementsByTagName("form")[0]);
@@ -66,10 +67,18 @@ async function handleSubmit(event) {
     window.location.href="/bills";
     return false
   
-  }
-    
-const form = document.querySelector("form");
-if(form){
-    form.addEventListener("submit", handleSubmit);
-    console.log("form found")
+}
+
+
+async function HandleDelete(event) {
+    console.log("got here");
+    //id is already in the page url
+    let response = await fetch(`${window.location.href}`,{
+      method:"DELETE",
+    })
+  
+    await response.text()
+    window.location.href="/bills";
+    // return false
+  
 }

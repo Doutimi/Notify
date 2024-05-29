@@ -16,7 +16,6 @@ async function FetchBillsList(){
                 <span class="bill-name">${item.name}</span>
             </a>
             <span class="bill-date">${item.date}</span>
-            <span><img src="trash icon.svg"></span>
         </div>`
     )).join("")
 
