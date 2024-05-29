@@ -1,11 +1,1 @@
-[
-    {
-        "name": "Andre's MMR immunization",
-        "date": "2024-05-27",
-        "time": "10:00",
-        "location": "Tehila children hospital",
-        "extra_info": "",
-        "frequency": "None",
-        "id": "3034"
-    }
-]
+[{"name":"Andre's MMR immunization","date":"2024-05-27","time":"10:00","location":"Tehila children hospital","extra_info":"","frequency":"None","id":"3034"},{"name":"Richard Dental Visit","date":"2024-05-28","time":"10:00","location":"Esteem Dental Clinic","extra_info":"To clean my teeth","frequency":"Yearly","id":"5883"}]
