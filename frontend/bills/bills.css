@@ -69,21 +69,40 @@ h2{
     font-family: Niveau grotesk;
 }
 
+.list-item a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.bill-name:hover{
+    color:#e69757;
+}
+
 .bill-name{
     display:inline-block;
     padding-right: .5em;
     padding-left: .5em;
     font-weight: bold;
     font-size: 16pt;
-    width: 60%
+    width: 70%
 }
 
 .bill-date{
     /*display:inline-block; */
-    float: right;
+    /* float: right; */
     padding-right: .5em;
     font-style: italic;
-    width: 20%
+    width: 10%
+}
+
+img{
+    width: 24px;
+    height: 24px;
+    float: right;
+}
+
+img:hover{
+    background-color: cornsilk;
 }
 
 .form-field{

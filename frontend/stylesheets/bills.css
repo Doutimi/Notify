@@ -69,6 +69,11 @@ h2{
     font-family: Niveau grotesk;
 }
 
+.list-item a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .bill-name{
     display:inline-block;
     padding-right: .5em;
