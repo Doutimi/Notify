@@ -1,34 +1,75 @@
 
 async function FetchBill(){
-    let response =await fetch("./id/data") 
-    /**@type {import("../../server").BillData[]} */
-    let billsList=await response.json()
+    let response =await fetch(window.location.href+"/data") 
+    /**@type {import("../../../server").BillsData} */
+    let billData=await response.json()
     
-
-    let billHTML=BillsData.map((item,index)=>(
-        `<form id="myForm">
+    let formHTML=`
+    <form id="myForm" onsubmit="return false">
         <label for="name">Name of bill</label>
-        <input class="form-field" type="text" id="name" name="name" value="Spotify" required><br>
+        <input class="form-field" type="text" id="name" name="name" value="${billData.name}" required><br>
+
         <label for="amount">Amount due</label><br>
-        <input class="form-field" type="number" id="amount" name="amount" placeholder="1400" required><br>
+        <input class="form-field" type="number" id="amount" name="amount" value="${billData.amount}" required><br>
+
         <label for="date">Due date</label><br>
-        <input class="form-field" type="date" id="date" name="date" required><br>
+        <input class="form-field" type="date" id="date" name="date" value="${billData.date}" required><br>
+
         <label>Recurrence:</label>
         <span>
-            <input type="radio" id="yearly" name="frequency" value="Yearly">
+            <input type="radio" ${billData.frequency==="Yearly"?"checked":""} id="yearly" name="frequency" value="Yearly">
             <label for="option1"> Yearly</label>
-            <input type="radio" id="monthly" name="frequency" value="Monthly">
+
+            <input type="radio"  ${billData.frequency==="Monthly"?"checked":""}  id="monthly" name="frequency" value="Monthly">
             <label for="option2"> Monthly</label>
-            <input type="radio" id="weekly" name="frequency" value="Weekly">
+
+            <input type="radio" ${billData.frequency==="Weekly"?"checked":""} id="weekly" name="frequency" value="Weekly">
             <label for="option2"> Weekly</label>
-            <input type="radio" id="none" name="frequency" value="None">
+
+            <input type="radio" ${billData.frequency==="None"?"checked":""}id="none" name="frequency" value="None">
             <label for="option2"> None</label><br>
         </span>
-      </form>`
-    )).join("")
+
+        <div class="btn_frame container">
+            <button  onclick="handleSubmit()">Save</button>
+        </div>
+  </form>`
+    
 
     let container=document.getElementById("container")
-    container.innerHTML=billHTML
+    container.innerHTML=formHTML
 }
 
-FetchBillsList()
+FetchBill()
+
+
+
+
+async function handleSubmit(event) {
+    console.log("got here")
+    // event.preventDefault();
+    const data = new FormData(document.getElementsByTagName("form")[0]);
+  
+    const value = Object.fromEntries(data.entries());
+  
+    console.log({value})
+    let response = await fetch(`${window.location.href}/save`,{
+      method:"PATCH",
+      body:JSON.stringify(value),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+  
+    await response.json()
+  
+    window.location.href="/bills";
+    return false
+  
+  }
+    
+const form = document.querySelector("form");
+if(form){
+    form.addEventListener("submit", handleSubmit);
+    console.log("form found")
+}

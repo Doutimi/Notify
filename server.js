@@ -8,7 +8,7 @@ const port = 3000;
 
 // Middleware to parse JSON body
 app.use(bodyParser.json());
-/**@typedef {{name:string,amount:string,date:string,frequency:string,id:string}} BillsData */
+/**@typedef {{name:string,amount:string,date:string,frequency:"Monthly"|"Yearly"|"Weekly"|"None",id:string}} BillsData */
 
 // Serve the HTML form
 app.use(express.static(path.join(__dirname, 'frontend')));
@@ -23,6 +23,51 @@ app.get("/bills/get_list",(req,res)=>{
     let billsData=ReadFile(billsFilePath,[])
     res.send(billsData)
 })
+
+//endpoint to get single bill edit page data
+app.get("/bills/edit/:id/data",(req,res)=>{
+    let id=req.params.id
+    console.log(`data  for billsID:${id} received`);
+
+    /**@type {BillsData[]} */
+    let billsData=ReadFile(billsFilePath,[])
+
+    let entryData=billsData.find(item=>item.id===id)
+    res.send(entryData||{})
+})
+
+//endpoint to save an edited  bill entry
+app.patch("/bills/edit/:id/save",(req,res)=>{
+    let id=req.params.id
+    console.log({message:`Save request for ${id} received`})
+    
+    /**@type {BillsData} */
+    let editedBillData={...req.body,id};
+
+    /**@type {BillsData[]} */
+    let allBillsData=ReadFile(billsFilePath,[])
+
+    let entryToEdit=allBillsData.find(item=>item.id===id);
+    if(!entryToEdit){
+        res.send();
+        return;
+    }
+
+    Object.keys(editedBillData).forEach(key=>{
+        entryToEdit[key]=editedBillData[key]
+    })
+
+    fs.writeFileSync(billsFilePath,JSON.stringify(allBillsData))
+    res.send({message:"bill entry edited successfully"});
+})
+
+//endpoint to get single bill edit page
+app.get("/bills/edit/:id",(req,res)=>{
+    let html=fs.readFileSync("frontend/bills/edit/index.html");
+    res.setHeader("Content-Type","text/html")
+    res.send(html);
+})
+
 
 //endpoint to get appointments list
 app.get("/appointments/get_list",(req,res)=>{

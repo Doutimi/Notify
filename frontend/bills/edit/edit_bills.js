@@ -2,14 +2,11 @@ async function handleSubmit(event) {
   event.preventDefault();
   const data = new FormData(event.target);
 
-  let id=(Math.random()*10000).toFixed(0)
-  
   const value = Object.fromEntries(data.entries());
-  value.id=id;
 
   console.log({value})
-  let response = await fetch("./save",{
-    method:"POST",
+  let response = await fetch(`${window.location.href}/save`,{
+    method:"PATCH",
     body:JSON.stringify(value),
     headers:{
       "Content-Type":"application/json"
@@ -18,9 +15,10 @@ async function handleSubmit(event) {
 
   await response.json()
 
-  window.location.href="/bills"
+  window.location.href="/bills";
+  return false
 
 }
   
   const form = document.querySelector("form");
-  form.addEventListener("submit", handleSubmit);
+  if(form)form.addEventListener("submit", handleSubmit);

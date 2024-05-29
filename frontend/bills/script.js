@@ -12,7 +12,9 @@ async function FetchBillsList(){
 
     let billsHTML=sortedData.map((item,index)=>(
         `<div class="list-item">
-            <span class="bill-name">${item.name}</span>
+            <a href="./edit/${item.id}">
+                <span class="bill-name">${item.name}</span>
+            </a>
             <span class="bill-date">${item.date}</span>
         </div>`
     )).join("")
