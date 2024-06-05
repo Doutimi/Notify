@@ -4,6 +4,6 @@ const notifier = require('node-notifier');
 
 // Object
 notifier.notify({
-  title: 'Your Netflix bill is due tomorrow',
-  message: 'Get your 4400 ready to pay up!'
+  title: `Your ${item.name}is due tomorrow`,
+  message: `Get your ${item.amount} ready to pay up!`
 });

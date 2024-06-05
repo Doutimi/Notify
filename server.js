@@ -118,16 +118,16 @@ app.post('/appointments/new/save', (req, res) => {
 });
 
 // Endpoint to serve JSON data
-app.get('/backend', (req, res) => {
-    const filePath = path.join(__dirname, 'backend', 'bills.json');
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading file', err);
-            return res.status(500).json({ message: 'Internal Server Error' });
-        }
-        res.json(JSON.parse(data));
-    });
-});
+// app.get('/backend', (req, res) => {
+//     const filePath = path.join(__dirname, 'backend', 'bills.json');
+//     fs.readFile(filePath, 'utf8', (err, data) => {
+//         if (err) {
+//             console.error('Error reading file', err);
+//             return res.status(500).json({ message: 'Internal Server Error' });
+//         }
+//         res.json(JSON.parse(data));
+//     });
+// });
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
